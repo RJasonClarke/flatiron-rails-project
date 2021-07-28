@@ -11,14 +11,12 @@
   </head>
 
   <body>
-    <nav>
     <%if session[:current_user_id]%>
+    <nav>
       You are logged in as: <%= @current_user.email %>
-    <%end%>
-      <a href='/login'>Login</a> |
-      <a href='/register'>Register</a> |
       <a href='/logout'>Logout</a> 
     </nav>
+    <%end%>
     <%= yield %>
   </body>
 </html>
