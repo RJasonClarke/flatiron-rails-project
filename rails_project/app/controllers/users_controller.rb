@@ -9,7 +9,7 @@ class UsersController < ApplicationController
         @user.email = params[:email]
         @user.password_digest = params[:password_digest]
         if @user.save
-            redirect_to '/'
+            redirect_to '/login'
         else
             render '/register'
         end
