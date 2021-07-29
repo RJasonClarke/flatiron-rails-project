@@ -13,6 +13,8 @@ get '/lists', to: 'lists#index'
 
 resources :lists
 
+post '/lists/:id', to: 'movies#create'
+
 root to: 'application#home'
 
 end
