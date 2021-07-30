@@ -20,7 +20,7 @@ class ListsController < ApplicationController
     end
 
     def index
-        @lists = List.all
+        @lists = current_user.lists.all
     end
 
 end

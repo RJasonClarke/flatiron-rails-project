@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         if @user.save
             redirect_to '/login'
         else
-            render '/register'
+            redirect_to '/register'
         end
     end
 
