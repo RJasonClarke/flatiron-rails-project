@@ -15,13 +15,13 @@ ActiveRecord::Schema.define(version: 2021_07_29_155617) do
   create_table "lists", force: :cascade do |t|
     t.string "title"
     t.integer "user_id"
-    t.integer "movie_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
+    t.integer "list_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -13,7 +13,8 @@ get '/lists', to: 'lists#index'
 
 resources :lists
 
-post '/lists/:id', to: 'movies#create'
+get '/lists/:id/movies/new', to: 'movies#new'
+post '/lists/:id/movies', to: 'movies#create'
 
 root to: 'application#home'
 
