@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+get '/auth/github/callback', to: 'sessions#create'
+
+
 get '/register', to: 'users#new'
 post '/users', to: 'users#create'
 
@@ -13,8 +16,8 @@ get '/lists', to: 'lists#index'
 
 resources :lists
 
-get '/lists/:id/movies/new', to: 'movies#new'
-post '/lists/:id/movies', to: 'movies#create'
+get '/lists/:id', to: 'movies#new'
+post '/movies', to: 'movies#create'
 
 root to: 'application#home'
 
