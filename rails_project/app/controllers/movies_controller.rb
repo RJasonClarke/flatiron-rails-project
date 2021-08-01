@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
     def create
         @movie = Movie.new
         @movie.title = params["Title"]
-        @movie.list_id = current_user.lists.find(params[:id])
+        @movie.movie_id = current_user.lists.find(params[:id])
         if @movie.save
             redirect_to '/lists'
         end
