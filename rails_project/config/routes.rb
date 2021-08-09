@@ -4,7 +4,6 @@ get '/auth/github/callback', to: 'sessions#create'
 
 
 get '/register', to: 'users#new'
-
 get '/login', to: 'sessions#new'
 post '/sessions', to: 'sessions#create'
 get '/logout', to: 'sessions#destroy'
