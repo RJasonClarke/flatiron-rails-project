@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+  #home page
   root 'application#home'
 
-  get '/register', to: 'users#new'
-  post '/register', to: 'users#create'
+  #custom routes
+    #register routes
+    get '/register', to: 'users#new'
+    post '/register', to: 'users#create'
+
+    #login routes
+    get '/login', to: 'sessions#new'
+    post '/login', to: 'sessions#create'
+    
+    #logout routes
+    delete '/logout', to: 'sessions#destroy'
 
 
   resources :users
