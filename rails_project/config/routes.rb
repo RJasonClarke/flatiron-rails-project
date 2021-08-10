@@ -11,10 +11,11 @@ Rails.application.routes.draw do
     #login routes
     get '/login', to: 'sessions#new'
     post '/login', to: 'sessions#create'
-    
+
     #logout routes
     delete '/logout', to: 'sessions#destroy'
 
 
   resources :users
+  resources :jobs
 end
