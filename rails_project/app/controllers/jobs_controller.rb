@@ -6,12 +6,16 @@ class JobsController < ApplicationController
     end
 
     def create
-        @job = Job.new(job_params)
+        @job = current_user.jobs.build(job_params)
         if @job.save
             redirect_to jobs_path
         else
             render :new
         end
+    end
+
+    def index
+        @jobs = Job.all
     end
 
 
