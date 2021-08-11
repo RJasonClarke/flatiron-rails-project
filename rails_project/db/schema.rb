@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_08_09_160645) do
   end
 
   create_table "tools", force: :cascade do |t|
+    t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

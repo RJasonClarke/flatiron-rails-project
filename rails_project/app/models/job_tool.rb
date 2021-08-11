@@ -1,4 +1,4 @@
 class JobTool < ApplicationRecord
     belongs_to :job
-    has_many :tools
+    belongs_to :tool
 end

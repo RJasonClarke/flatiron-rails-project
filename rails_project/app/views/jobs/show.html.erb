@@ -1,0 +1,7 @@
+<h1><%= @job.title %></h1>
+
+<p><strong>Details:</strong> <%= @job.content%></p>
+
+<p><strong>Required tools:</strong></p>
+
+<%= link_to 'Add tool', new_job_job_tool_path(@job)%>
