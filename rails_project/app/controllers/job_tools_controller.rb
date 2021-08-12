@@ -5,12 +5,15 @@ class JobToolsController < ApplicationController
     end
 
     def create
-        @job_tool = JobTool.create(job_tool_params)
-        binding.pry
-        @job_tool = current_user.jobs.job_tools.build(job_tool_params)
-        if @job_tool.save
-            redirect_to jobs_path
-        end
+        @job = JobTool.create(job_tool_params)
+        tool = Tool.find_or_create_by(title: params["job_tool"]["tool"]["title"])
+        @job.tool_id = tool.id
+        @job.job_id = params[:job_id]
+        @job.update(job_tool_params)
+        job = @job_tool.job
+        
+        @job_tool.save
+        redirect_to job_path(job)
     end
 
     def show

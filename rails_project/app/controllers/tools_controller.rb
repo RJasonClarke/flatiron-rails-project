@@ -1,16 +1,17 @@
 class ToolsController < ApplicationController
 
-    def new
-        @tool = Tool.new
-    end
-
-    def create
-
-    end
-
     def show
+        @tool = Tool.find(params[:id])
     end
 
     def index
+        @tools = Tool.all
     end
+
+    private
+
+    def tool_params
+        params.require(:tool).permit(:title)
+    end
+
 end
