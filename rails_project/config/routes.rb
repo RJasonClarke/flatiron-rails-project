@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     get '/login', to: 'sessions#new'
     post '/login', to: 'sessions#create'
 
+    #omniauth routes
+    get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
+
     #logout routes
     delete '/logout', to: 'sessions#destroy'
 
