@@ -13,6 +13,8 @@
 ActiveRecord::Schema.define(version: 2021_08_09_160645) do
 
   create_table "job_tools", force: :cascade do |t|
+    t.integer "job_id"
+    t.integer "tool_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
