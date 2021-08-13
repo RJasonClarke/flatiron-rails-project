@@ -3,7 +3,10 @@
 <p><strong>Details:</strong> <%= @job.content%></p>
 
 <p><strong>Required tools:</strong></p>
+    <% @job.job_tools.each do |t|%>
+    <%= t.tool.title%>
+    <%end%>
 
 <%= link_to 'Add job tools', new_job_job_tool_path(@job)%>
-<%= link_to "Edit Job", edit_user_job_path(@job.user, @job)%>
-<%= link_to "Delete Job", job_path(@job), method: :delete %>
+<%= link_to 'Edit Job', edit_user_job_path(@job.user, @job)%>
+<%= link_to 'Delete Job', job_path(@job), method: :delete %>
