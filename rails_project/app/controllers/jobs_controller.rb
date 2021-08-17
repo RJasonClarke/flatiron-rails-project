@@ -25,16 +25,16 @@ class JobsController < ApplicationController
     end
 
     def destroy
-        @user = current_user
         @job = Job.find(params[:id])
-        @job.destroy
-        if @job.destroy
-            redirect_to jobs_path
+        @job.tools.each do |t|
+            t.destroy
         end
+        @job.destroy
+        redirect_to jobs_path
     end
 
     def index
-        @jobs = Job.all
+        @jobs = Job.alpha.all
     end
 
     def show
@@ -45,6 +45,6 @@ class JobsController < ApplicationController
     private
 
     def job_params
-        params.require(:job).permit(:title, :content, :user_id)
+        params.require(:job).permit(:title, :content)
     end
 end

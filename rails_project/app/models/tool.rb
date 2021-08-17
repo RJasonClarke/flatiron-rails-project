@@ -1,6 +1,6 @@
 class Tool < ApplicationRecord
-    belongs_to :job_tools
-    has_many :jobs, through: :job_tools
+    belongs_to :user
+    belongs_to :job
 
     validates :title, presence: true
 end

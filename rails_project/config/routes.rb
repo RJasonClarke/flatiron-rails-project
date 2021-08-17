@@ -24,11 +24,9 @@ Rails.application.routes.draw do
   end
 
   resources :jobs do
-    resources :job_tools
+    resources :tools
   end
 
-  resources :job_tools
-
-  resources :tools, only: [:index, :show]
+  resources :tools
 
 end

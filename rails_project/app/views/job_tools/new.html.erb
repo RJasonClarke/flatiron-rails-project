@@ -1,9 +1,0 @@
-<h1>New tool</h1>
-
-<%= form_for(@job_tool) do |f|%>
-    <%= f.fields_for(:tool) do |t|%>
-    <%= t.text_field :title %>
-    <%= f.submit 'Submit'%>
-    <%end%>
-
-<%end%>
