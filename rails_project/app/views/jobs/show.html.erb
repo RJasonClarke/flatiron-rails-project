@@ -6,11 +6,11 @@
     <% @job.tools.each do |t|%>
         <ul>
             <li>    
-                <%= t.title %>
+                <%= t.title %><%= link_to 'Delete', job_path(@job.tools), method: 'delete' %>
             </li>
         </ul>
         <%end%>
 
-<%= link_to 'Add tools', new_job_tool_path(@job)%>
-<%= link_to 'Edit Job', edit_user_job_path(@job.user, @job)%>
+<%= link_to 'Add tools', new_job_tool_path(@job)%> |
+<%= link_to 'Edit Job', edit_user_job_path(@job.user, @job)%> |
 <%= link_to 'Delete Job', job_path(@job), method: :delete %>
