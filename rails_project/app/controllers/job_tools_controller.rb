@@ -1,4 +1,5 @@
 class JobToolsController < ApplicationController
+    before_action :logged_in?
 
     def new
         job = Job.find(params[:job_id])
@@ -6,12 +7,16 @@ class JobToolsController < ApplicationController
         if current_user.id == @user.id
             @job_tool = JobTool.new
             @job_tool.job_id = params[:job_id]
+
+            render 'job_tools/new'
+        else
+            redirect_to user_path(@user)
+            flash.alert = "You can only add tools to your own projects"
         end
     end
 
     def create
         @job_tool = JobTool.create(job_tool_params)
-        binding.pry
         tool = Tool.find_or_create_by(title: params["job_tool"]["tool"]["title"])
         @job_tool.tool_id = tool.id
         @job_tool.job_id = params[:job_id]
@@ -23,6 +28,11 @@ class JobToolsController < ApplicationController
         end
     end
 
+    def show
+        @job_tool = JobTool.find(params[:id])
+        @user = @job_tool.job.user
+    end
+
     private
 
     def job_tool_params
@@ -30,6 +40,6 @@ class JobToolsController < ApplicationController
     end
 
     def tool_params
-        params.require(:tools).permit(params[:projects_tool][:tools][:name])
+        params.require(:tools).permit(params[:job_tool][:tools][:title])
     end
 end
