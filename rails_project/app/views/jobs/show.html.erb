@@ -6,7 +6,7 @@
     <% @job.tools.each do |t|%>
         <ul>
             <li>    
-                <%= t.title %><%= link_to 'Delete', job_path(@job.tools), method: 'delete' %>
+                <%= t.title %>
             </li>
         </ul>
         <%end%>
