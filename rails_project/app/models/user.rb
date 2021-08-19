@@ -4,6 +4,6 @@ class User < ApplicationRecord
     has_many :tools
     has_many :job_tools, through: :jobs, source: :tools
 
-    validates :email, presence: true
-    validates :password, presence: true
+    validates :email, :password, presence: true
+
 end
