@@ -10,6 +10,7 @@ class JobsController < ApplicationController
         if @job.save
             redirect_to job_path(@job)
         else
+            flash[:message] = 'Job must have a title'
             render :new
         end
     end

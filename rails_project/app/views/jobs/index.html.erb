@@ -1,6 +1,6 @@
 <h1>Jobs</h1>
 
-<% current_user.jobs.each do |j| %>
-    <%= link_to j.title, job_path(j) %>
+<% @jobs.each do |job| %>
+    <%= link_to job.title, job_path(job) %> by <%= job.user.email%>
     <br>
 <%end%>
