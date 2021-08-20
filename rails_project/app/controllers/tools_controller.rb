@@ -14,7 +14,7 @@ class ToolsController < ApplicationController
         if @tool.save
             redirect_to job_path(@job)
         else
-            flash[:message] = 'Must include a tool name'
+            @error = 'Tool must include a name'
             render :new
         end
     end
