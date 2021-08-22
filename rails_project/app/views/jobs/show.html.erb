@@ -4,13 +4,13 @@
 <p><strong>Details:</strong> <%= @job.content%></p>
 
 <p><strong>Required tools:</strong></p>
-    <% @job.tools.each do |t|%>
-        <ul>
+    <ul>
+        <% @job.tools.each do |t|%>
             <li>    
                 <%= t.title %>
             </li>
-        </ul>
         <%end%>
+    </ul>
 
 <% if @job.user == current_user%>
     <%= link_to 'Add tools', new_job_tool_path(@job)%> |

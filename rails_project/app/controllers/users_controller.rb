@@ -10,7 +10,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to root_path
         else
-            @error = 'User must have an email and password'
+            @error = @user.errors.full_messages
             render :new
         end
     end

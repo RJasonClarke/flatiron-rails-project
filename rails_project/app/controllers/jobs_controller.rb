@@ -10,7 +10,7 @@ class JobsController < ApplicationController
         if @job.save
             redirect_to job_path(@job)
         else
-            @error = "Job must have a title"
+            @error = @job.errors.full_messages
             render :new
         end
     end
