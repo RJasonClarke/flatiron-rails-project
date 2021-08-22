@@ -3,11 +3,11 @@
 
 <p><strong>Details:</strong> <%= @job.content%></p>
 
-<p><strong>Required tools:</strong></p>
+<p><strong>Tool list:</strong></p>
     <ul>
         <% @job.tools.each do |t|%>
             <li>    
-                <%= t.title %>
+                <%= t.title %> added by <%= t.user.email %>
             </li>
         <%end%>
     </ul>
@@ -16,4 +16,6 @@
     <%= link_to 'Add tools', new_job_tool_path(@job)%> |
     <%= link_to 'Edit Job', edit_user_job_path(@job.user, @job)%> |
     <%= link_to 'Delete Job', job_path(@job), method: :delete %>
+    <%else%>
+    <%= link_to 'Recommend tool', new_job_tool_path(@job)%>
 <%end%>
