@@ -4,6 +4,7 @@ class User < ApplicationRecord
     has_many :tools
     has_many :listed_tools, through: :jobs, source: :tools
 
-    validates :email, :password, presence: true
+    validates :email, presence: true, uniqueness: true
+    validates :password, presence: true
 
 end

@@ -7,7 +7,7 @@
     <ul>
         <% @job.tools.each do |t|%>
             <li>    
-                <%= t.title %> added by <%= t.user.email %>
+                <strong><%= t.title %></strong> added by <%= t.user.email %>
             </li>
         <%end%>
     </ul>
