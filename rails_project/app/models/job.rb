@@ -1,7 +1,7 @@
 class Job < ApplicationRecord
     belongs_to :user
     has_many :tools
-    has_many :job_tools, through: :tools, source: :user
+    has_many :job_tools, through: :tools
 
     validates :title, presence: true
     
