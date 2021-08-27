@@ -18,14 +18,6 @@ class ToolsController < ApplicationController
             render :new
         end
     end
-    
-    def show
-        @tool = Tool.find(params[:id])
-    end
-
-    def index
-        @tools = Tool.all
-    end
 
     private
 
