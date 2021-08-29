@@ -40,6 +40,7 @@ class JobsController < ApplicationController
 
     def show
         @job = Job.find_by_id(params[:id])
+        @poster = @job.user_id
     end
 
 

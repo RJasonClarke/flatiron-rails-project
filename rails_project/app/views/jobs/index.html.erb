@@ -1,6 +1,13 @@
-<h1>Jobs</h1>
+<h1>All Current Jobs</h1>
 
 <% @jobs.each do |job| %>
+    <%= link_to job.title, job_path(job) %> by <%= job.user.email%>
+    <br>
+<%end%>
+
+<h2>Jobs with recommended tools:</h2>
+
+<% current_user.rec_tools.each do |job| %>
     <%= link_to job.title, job_path(job) %> by <%= job.user.email%>
     <br>
 <%end%>

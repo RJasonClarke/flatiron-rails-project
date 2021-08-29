@@ -5,8 +5,8 @@
 <p><strong>Tool list:</strong></p>
     <ul>
         <% @job.tools.each do |t|%>
-            <li>    
-                <strong><%= t.title %></strong> added by <%= t.user.email %>
+            <li>   
+                <strong><%= t.title %></strong> added by <strong><%= t.user.email %></strong>
             </li>
         <%end%>
     </ul>
