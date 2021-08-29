@@ -4,6 +4,15 @@
 
 <p><strong>Tool list:</strong></p>
     <ul>
+        <% @job.user.tools.each do |t|%>
+            <li>   
+                <strong><%= t.title %></strong> added by <strong><%= t.user.email %></strong>
+            </li>
+        <%end%>
+    </ul>
+
+    <p><strong>Recommended tool list:</strong></p>
+    <ul>
         <% @job.tools.each do |t|%>
             <li>   
                 <strong><%= t.title %></strong> added by <strong><%= t.user.email %></strong>

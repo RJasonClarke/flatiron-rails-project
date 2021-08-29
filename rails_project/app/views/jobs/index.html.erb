@@ -2,9 +2,12 @@
 
 <% @jobs.each do |job| %>
 <p>
-    <%= link_to job.title, job_path(job) %> by <%= job.user.email%>
+    <strong><%= link_to job.title, job_path(job) %></strong> 
+    by <strong><%= job.user.email%></strong>
     <br>
-    <strong>tool count:</strong> (<%=job.tools.count%>)
+    <strong>Job tool count:</strong> (<%=job.user.tools.count%>)
+    <br>
+    <strong>Rec. tool count:</strong> (<%=job.tools.count%>)
     <br>
     </p>
 <%end%>
