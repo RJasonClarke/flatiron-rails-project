@@ -6,7 +6,7 @@ class JobsController < ApplicationController
     end
 
     def create
-        @job = current_user.added_jobs.build(job_params)
+        @job = current_user.jobs.build(job_params)
         if @job.save
             redirect_to job_path(@job)
         else

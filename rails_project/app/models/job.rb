@@ -1,5 +1,5 @@
 class Job < ApplicationRecord
-    belongs_to :user, optional: true
+    belongs_to :user
     has_many :tools
     has_many :users, through: :tools
 
