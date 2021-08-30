@@ -4,19 +4,24 @@
 
 <p><strong>Tool list:</strong></p>
     <ul>
-        <% @job.user.tools.each do |t|%>
+        <% @job.user.tools.each do |t| if t.job_id == @job.id%>
+       
             <li>   
                 <strong><%= t.title %></strong> added by <strong><%= t.user.email %></strong>
             </li>
+            <%end%>
         <%end%>
     </ul>
 
     <p><strong>Recommended tool list:</strong></p>
     <ul>
-        <% @job.tools.each do |t|%>
-            <li>   
-                <strong><%= t.title %></strong> added by <strong><%= t.user.email %></strong>
-            </li>
+        <% @job.tools.each do |t| if t.user_id == @job.user_id%>
+            <%yield%>
+            <%else%>
+                <li>   
+                    <strong><%= t.title %></strong> recommended by <%= t.user.email %>
+                </li>
+            <%end%>
         <%end%>
     </ul>
 

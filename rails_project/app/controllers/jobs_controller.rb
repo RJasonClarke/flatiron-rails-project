@@ -40,6 +40,7 @@ class JobsController < ApplicationController
 
     def show
         @job = Job.find_by_id(params[:id])
+        @tool = Tool.find_by_id(params[:id])
     end
 
 
